@@ -1,5 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { categoriesAtom } from '@atoms/categoriesAtom';
+import { useAtom } from 'jotai';
 import { Link } from 'react-router-dom';
+import { default as cn } from 'classnames';
+
 
 const favorites = [
 	{
@@ -29,7 +33,47 @@ const favorites = [
 	}
 ];
 
+const categoryItemStyle = (first: boolean, second: boolean, third: boolean) => cn('group aspect-h-1 aspect-w-2 overflow-hidden rounded-lg',{
+	'sm:aspect-h-1 sm:aspect-w-1 sm:row-span-2': first,
+	'sm:aspect-none sm:relative sm:h-full': second || third
+})
+
+const categoryImgStyle = (first: boolean) => cn('object-cover object-center group-hover:opacity-75',{
+'sm:absolute sm:inset-0 sm:h-full sm:w-full': !first
+})
+
 const Dashboard = () => {
+	const [categories, setCategories] = useAtom(categoriesAtom)
+
+	const fetchCategories = async () => {
+		try {
+			const response = await fetch('https://64a99c4c8b9afaf4844ae636.mockapi.io/categories')
+			if (!response.ok) {
+				throw new Error('Failed to fetch categories');
+			}
+			const data = await response.json()
+			return data
+			
+		} catch (error) {
+			console.error('Error fetching categories:', error);
+    	throw error;
+		}
+	}
+
+	const getCategories = async() => {
+ try {
+    const categoriesData = await fetchCategories();
+    setCategories(categoriesData);
+  } catch (error) {
+    console.error('Error getting categories:', error);
+    // Handle the error accordingly
+  }
+	}
+	useEffect(() => {
+		getCategories()
+	}, []);
+
+	
 	return (
 		<div className='bg-white'>
 			{/* Hero section */}
@@ -138,7 +182,31 @@ const Dashboard = () => {
 						</div>
 
 						<div className='mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:grid-rows-2 sm:gap-x-6 lg:gap-8'>
-							<div className='group aspect-h-1 aspect-w-2 overflow-hidden rounded-lg sm:aspect-h-1 sm:aspect-w-1 sm:row-span-2'>
+							{
+								categories?.map((category: any, idx) =>
+									<div key={category.id} className={categoryItemStyle(idx===0, idx===1, idx===2)}>
+										<img
+											src={category.image}
+											alt={category.name}
+											className={categoryImgStyle(idx===0)}
+										/>
+										<div aria-hidden='true' className='bg-gradient-to-b from-transparent to-black opacity-50  sm:absolute sm:inset-0' />
+										<div className='flex items-end p-6 sm:absolute sm:inset-0'>
+											<div>
+												<h3 className='font-semibold text-white'>
+													<a href='#'>
+														<span className='absolute' />
+														{category.name}
+													</a>
+												</h3>
+												<p aria-hidden='true' className='mt-1 text-sm text-white'>
+													Shop now
+												</p>
+											</div>
+										</div>
+									</div>)
+							}
+							{/* <div className='group aspect-h-1 aspect-w-2 overflow-hidden rounded-lg sm:aspect-h-1 sm:aspect-w-1 sm:row-span-2'>
 								<img
 									src='https://tailwindui.com/img/ecommerce-images/home-page-03-featured-category.jpg'
 									alt="Two models wearing women's black cotton crewneck tee and off-white cotton crewneck tee."
@@ -206,7 +274,7 @@ const Dashboard = () => {
 										</p>
 									</div>
 								</div>
-							</div>
+							</div> */}
 						</div>
 
 						<div className='mt-6 sm:hidden'>

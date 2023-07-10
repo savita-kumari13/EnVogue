@@ -25,7 +25,8 @@
 		"paths": {
 			"@components/*": ["components/*"],
 			"@images/*": ["images/*"],
-			"@helpers/*": ["helpers/*"]
+			"@helpers/*": ["helpers/*"],
+			"@atoms/*": ["atoms/*"]
 		}
 	},
 	"include": ["src"]

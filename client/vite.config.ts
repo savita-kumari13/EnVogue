@@ -8,7 +8,8 @@ export default defineConfig({
 		alias: {
 			'@components': path.resolve(__dirname, 'src/components'),
 			'@images': path.resolve(__dirname, 'src/images'),
-			'@helpers': path.resolve(__dirname, 'src/helpers')
+			'@helpers': path.resolve(__dirname, 'src/helpers'),
+			'@atoms': path.resolve(__dirname, 'src/atoms')
 		}
 	},
 	plugins: [react()]
