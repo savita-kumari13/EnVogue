@@ -1,18 +1,17 @@
-const { verifySignUp } = require("../middlewares");
-const controller = require("../controllers/auth.controller");
+import { checkDuplicateEmail } from '../middlewares/verifySignUp.js';
+import { signin, signup, signout } from '../controllers/auth.controller.js';
 
-module.exports = function (app) { 
+const authRoutes = (app) => {
 	app.use(function (req, res, next) {
-		res.header(
-			"Access-Control-Allow-Headers",
-			"Origin, Content-Type, Accept"
-		);
+		res.header('Access-Control-Allow-Headers', 'Origin, Content-Type, Accept');
 		next();
 	});
 
-	app.post('/auth/signup', [verifySignUp.checkDuplicateEmail], controller.signup)
+	app.post('/auth/signup', [checkDuplicateEmail], signup);
 
-	app.get("/auth/signin", controller.signin);
+	app.post('/auth/signin', signin);
 
-	app.get("/auth/signout", controller.signout);
+	app.get('/auth/signout', signout);
 };
+
+export default authRoutes;

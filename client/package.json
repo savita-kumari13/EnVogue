@@ -5,15 +5,16 @@
 	"type": "module",
 	"main": "main.tsx",
 	"scripts": {
-		"dev": "vite --port=4000 --strictPort",
+		"dev": "vite --port=5000 --strictPort",
 		"build": "vite build --config  vite.config.prod.js",
-		"preview": "vite preview --port=4000 --strictPort",
+		"preview": "vite preview --port=5000 --strictPort",
 		"deploy": "npm run build && npm run preview"
 	},
 	"dependencies": {
 		"@headlessui/react": "^1.7.15",
 		"@heroicons/react": "^2.0.18",
 		"autoprefixer": "^10.4.14",
+		"axios": "^1.4.0",
 		"classnames": "^2.3.2",
 		"jotai": "^2.2.2",
 		"localforage": "^1.10.0",

@@ -1,0 +1,74 @@
+[
+	{
+		"brand": "Allen Solly",
+		"description": "Men Blue & White Slim Fit Striped Casual Sustainable Shirt",
+		"price": "1800",
+		"rating": "4.3",
+		"sizes": [
+			{
+				"label": "40"
+			},
+			{
+				"label": "42"
+			}
+		],
+		"category": "64bbd8dec4e29598b0c9d72c",
+		"images": [
+			{
+				"src": "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/23350236/2023/5/23/be29792f-c5ba-4446-9d9a-3427634645c41684848024642BeyoursMenGreyClassicOpaqueCasualShirt1.jpg"
+
+			},
+			{
+				"src": "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/23350236/2023/5/23/998d22f9-605d-48a0-97a2-de7bc6bfe7c81684848024629BeyoursMenGreyClassicOpaqueCasualShirt2.jpg"
+			}
+		]
+			},
+	{
+		"brand": "Beyours",
+		"description": "Slim Fit Vertical Striped Pure Cotton Formal Shirt",
+		"price": "3114",
+		"rating": "4.8",
+		"category": "64bbd8dec4e29598b0c9d72c",
+				"sizes": [
+			{
+				"label": "42"
+			},
+			{
+				"label": "44"
+			}
+		],
+		"images": [
+			{
+				"src": "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/10341699/2022/8/25/c23fd879-a9b3-4515-a181-558523a71b9b1661423122029-LOCOMOTIVE-Men-Black--Grey-Slim-Fit-Checked-Casual-Shirt-342-1.jpg"
+
+			},
+			{
+				"src":"https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/10341699/2022/8/25/1a84aa49-ae59-46fc-8c88-d768de0f84861661423122021-LOCOMOTIVE-Men-Black--Grey-Slim-Fit-Checked-Casual-Shirt-342-2.jpg"
+			}
+		]
+	},
+	{
+		"brand": "Ted Baker",
+		"description": "Floral Printed Puff Sleeves Smocked Shoulders Wrap Top",
+		"price": "9600",
+		"rating": "4.8",
+		"category": "64bbd8dec4e29598b0c9d72b",
+				"sizes": [
+			{
+				"label": "S"
+			},
+			{
+				"label": "M"
+			}
+		],
+		"images": [
+			{
+				"src": "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/22753822/2023/4/13/970a7093-677d-4b5e-b751-2193edc4dbe31681374139582TedBakerPinkTop3.jpg"
+
+			},
+			{
+				"src":"https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/22753822/2023/4/13/001fb339-6aae-4ca9-8880-d415c1937bcf1681374139531TedBakerPinkTop1.jpg"
+			}
+		]
+	}
+]

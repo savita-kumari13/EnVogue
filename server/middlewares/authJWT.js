@@ -1,19 +1,24 @@
-const jwt = require("jsonwebtoken");
-const config = require('../config/auth.config')
+import { secret } from '../config/auth.config.js';
+import pkg from 'jsonwebtoken';
+const { verify } = pkg;
 
-verifyToken = (req, res, next) => {
+const verifyToken = (req, res, next) => {
 	let token = req.session.token;
-	console.log('verifyToken token', req.session.token)
+	console.log('verifyToken req', req.session);
+
+	console.log('verifyToken token', req.session.token);
 
 	if (!token) {
 		return res.status(403).send({
-			message: "No token provided!",
+			status: 403,
+			message: 'No token provided!'
 		});
 	}
-	 jwt.verify(token, config.secret, (err, decoded) => {
+	verify(token, secret, (err, decoded) => {
 		if (err) {
 			return res.status(401).send({
-				message: "Unauthorized!",
+				status: 401,
+				message: 'Unauthorized!'
 			});
 		}
 		req.userId = decoded.id;
@@ -22,6 +27,6 @@ verifyToken = (req, res, next) => {
 };
 
 const authJwt = {
-  verifyToken,
+	verifyToken
 };
-module.exports = authJwt;
+export default authJwt;

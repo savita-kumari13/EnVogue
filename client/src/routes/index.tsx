@@ -37,7 +37,7 @@ export const router = createBrowserRouter([
 				loader: () => <div>loading</div>
 			},
 			{
-				path: '/products/:productId',
+				path: '/products/:id',
 				element: <ProductPage />,
 				loader: () => <div>loading</div>
 			},
@@ -67,7 +67,7 @@ const AppRoutes = () => (
 						<Route path='/auth/register' element={<SignUp />} />
 						<Route path='/auth/signin' element={<SignIn />} />
 						<Route path='/products' element={<ProductListing />} />
-						<Route path='/products/:productId' element={<ProductPage />} />
+						<Route path='/products/:id' element={<ProductPage />} />
 						<Route path='/cart' element={<Cart />} />
 						<Route path='/checkout' element={<Checkout />} />
 					</Routes>
