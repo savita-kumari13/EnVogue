@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react-swc';
+import react from '@vitejs/plugin-react';
 import path from 'path';
 
 // https://vitejs.dev/config/
@@ -12,5 +12,9 @@ export default defineConfig({
 			'@atoms': path.resolve(__dirname, 'src/atoms')
 		}
 	},
-	plugins: [react()]
+	plugins: [react()],
+	server: {
+		host: true,
+		port: 5001
+	}
 });

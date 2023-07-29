@@ -2,7 +2,6 @@ import express, { urlencoded } from 'express';
 import pkg from 'body-parser';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
-import { connect } from 'mongoose';
 import bcrypt from 'bcrypt';
 import cookieSession from 'cookie-session';
 import session from 'express-session';
@@ -14,9 +13,11 @@ import orderRoutes from './routes/order.routes.js';
 const { json, urlencoded: _urlencoded } = pkg;
 // const authRouter = require('./controllers/auth.controller')
 
-connect('mongodb://localhost:27017/e-commerce', {
+import { connect } from 'mongoose';
+connect('mongodb://mongo-db:27017/e-commerce', {
 	useNewUrlParser: true,
-	useUnifiedTopology: true
+	useUnifiedTopology: true,
+	serverSelectionTimeoutMS: 5000
 })
 	.then(() => {
 		console.log('================ Connected to MongoDB =====================');
@@ -28,7 +29,7 @@ connect('mongodb://localhost:27017/e-commerce', {
 const app = express();
 app.use(json());
 app.use(cookieParser());
-app.use(cors({ origin: 'http://127.0.0.1:5000', credentials: true }));
+app.use(cors());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(_urlencoded({ extended: true }));
 app.use(urlencoded({ extended: true }));

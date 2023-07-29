@@ -15,8 +15,7 @@ const ProductListing = () => {
 				method: 'GET',
 				headers: {
 					'Content-Type': 'application/json'
-				},
-				withCredentials: true
+				}
 			};
 			const response = await axios(url, options);
 			if (response?.status === 200) {
