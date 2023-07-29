@@ -10,8 +10,8 @@ services:
       - '27017:27017'
 
   backend-app:
-    container_name: e-commerce_backend
-    image: e-commerce-backend
+    container_name: e_commerce_backend
+    image: 060454969817.dkr.ecr.us-east-1.amazonaws.com/backend-db:latest
     restart: always
     build:
       context: .

@@ -10,8 +10,9 @@ import userRoutes from './routes/user.routes.js';
 import productRoutes from './routes/product.routes.js';
 import orderRoutes from './routes/order.routes.js';
 
+const PORT = process.env.PORT || 4000;
+
 const { json, urlencoded: _urlencoded } = pkg;
-// const authRouter = require('./controllers/auth.controller')
 
 import { connect } from 'mongoose';
 connect('mongodb://mongo-db:27017/e-commerce', {
@@ -49,16 +50,13 @@ if (app.get('env') === 'production') {
 
 app.use(session(sess));
 
-// require('./routes/auth.routes')(app);
-// require('./routes/user.routes')(app);
-// require('./routes/product.routes')(app);
-// require('./routes/order.routes')(app);
-
 authRoutes(app);
 userRoutes(app);
 productRoutes(app);
 orderRoutes(app);
 
-app.listen(4000, () => {
-	console.log('listening on 4000-----');
+app.get('/', (req, res) => res.send('server running'));
+
+app.listen(PORT, () => {
+	console.log(`listening on ${PORT}-----`);
 });

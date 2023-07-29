@@ -25,3 +25,7 @@ dist-ssr
 
 #DB
 server/data/*
+
+
+#keys
+*/key/*
